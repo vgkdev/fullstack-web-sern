@@ -14,6 +14,7 @@ const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize("fullstack_web_sern", "root", null, {
   host: "localhost",
   dialect: "mysql",
+  logging: false, //ko log ra câu lệnh sql
 });
 
 let connectDB = async () => {
