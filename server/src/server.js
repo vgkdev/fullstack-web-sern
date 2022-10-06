@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./routes/web";
 import connectDB from "./config/connectDB";
+import initAPIRoutes from "./routes/api";
 
 require("dotenv").config();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 viewEngine(app);
 initWebRoutes(app);
+initAPIRoutes(app);
 
 connectDB();
 
