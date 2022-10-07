@@ -1,9 +1,10 @@
 import "./App.css";
+import Navigator from "./navigations/Navigator";
 
 function App() {
   return (
-    <div>
-      <h1>hello world</h1>
+    <div className="App">
+      <Navigator />
     </div>
   );
 }
