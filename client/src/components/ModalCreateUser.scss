@@ -1,0 +1,74 @@
+.modal-container {
+  max-width: 500px;
+  height: 20s0px;
+  // border: 1px solid red;
+  margin: 0 auto;
+
+  .input-user-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    // border: 1px solid red;
+
+    input {
+      height: 50px;
+      width: 230px;
+      border-radius: 10px;
+      align-items: center;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+
+    input:focus {
+      outline: none !important;
+      border: 1px solid blue !important;
+      box-shadow: 0 0 10px #719ece;
+    }
+  }
+
+  .input-email-password {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+
+    input {
+      height: 50px;
+      width: 465px;
+      border-radius: 10px;
+      align-items: center;
+      border: 1px solid gray;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    input:focus {
+      outline: none !important;
+      border: 1px solid blue !important;
+      box-shadow: 0 0 10px #719ece;
+    }
+  }
+
+  .err-message {
+    color: red;
+    font-size: 14px;
+  }
+}
+
+.footer-container {
+  //border: 1px solid red;
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  //text-align: center;
+  justify-content: center;
+  button {
+    width: 220px;
+    height: 40px;
+  }
+}

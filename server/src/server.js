@@ -5,9 +5,13 @@ import initWebRoutes from "./routes/web";
 import connectDB from "./config/connectDB";
 import initAPIRoutes from "./routes/api";
 
+import cors from "cors";
+
 require("dotenv").config();
 
 let app = express();
+
+app.use(cors({ origin: true }));
 
 //config app
 

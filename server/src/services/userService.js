@@ -32,7 +32,6 @@ let handleUserLogin = (email, password) => {
           if (checkPassword) {
             userData.errCode = 0;
             userData.message = "ok";
-
             delete user.password; //xóa password khỏi object user
             userData.user = user;
           } else {
@@ -84,7 +83,7 @@ let createNewUser = (data) => {
       } else {
         let hashPassword = await hashUserPassword(data.password);
 
-        await db.User.create({
+        let user = await db.User.create({
           email: data.email,
           password: hashPassword,
           firstName: data.firstName,
@@ -93,6 +92,7 @@ let createNewUser = (data) => {
         resolve({
           errCode: 0,
           message: "create new user is successful",
+          user,
         });
       }
     } catch (err) {
