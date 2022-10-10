@@ -1,44 +1,41 @@
 import "./App.css";
 import Navigator from "./navigations/Navigator";
 
-import React, { useState } from "react";
+import React from "react";
 import Login from "./views/Login";
 
-const App = () => {
-  const [isLogin, setIsLogin] = useState(false);
+import { connect } from "react-redux";
 
-  const setStateLogin = () => {
-    setIsLogin(true);
-  };
+const App = (props) => {
+  // const [isLogin, setIsLogin] = useState(false);
+
+  // const setStateLogin = () => {
+  //   setIsLogin(true);
+  // };
+
+  const user = props.dataRedux;
 
   return (
     <div className="App">
-      {isLogin && <Navigator />}
+      {/* {console.log(user)} */}
+      {user && <Navigator />}
 
-      {!isLogin && <Login setStateLogin={setStateLogin} />}
+      {!user && <Login />}
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    dataRedux: state.user,
+  };
+};
 
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isLoggin: false,
-//     };
-//   }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveUserRedux: (userData) =>
+      dispatch({ type: "SAVE_USER", payload: userData }),
+  };
+};
 
-//   render() {
-//     return (
-//       <div className="App">
-//         {this.state.isLoggin && <Navigator />}
-
-//         {!this.state.isLoggin && <Login />}
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

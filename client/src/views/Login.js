@@ -7,6 +7,8 @@ import Button from "react-bootstrap/Button";
 import "./Login.scss";
 import ModalCreateUser from "../components/ModalCreateUser";
 
+import { connect } from "react-redux";
+
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +42,8 @@ const Login = (props) => {
 
       if (user && user.data.errCode === 0) {
         console.log(">>>successed: ", user.data.user);
-        props.setStateLogin();
+        props.saveUserRedux(user.data.user);
+        // props.setStateLogin();
       }
     } catch (err) {
       console.log(err);
@@ -92,4 +95,17 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    dataRedux: state.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveUserRedux: (userData) =>
+      dispatch({ type: "SAVE_USER", payload: userData }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

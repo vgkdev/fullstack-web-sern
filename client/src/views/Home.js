@@ -1,15 +1,28 @@
 import React from "react";
-import { AiFillHome } from "react-icons/ai";
+
+import { connect } from "react-redux";
 
 import "./Home.scss";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home-container">
-      <AiFillHome className="icon" />
-      Home
+      <div>{JSON.stringify(props.dataRedux)}</div>
     </div>
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    dataRedux: state.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveUserRedux: (userData) =>
+      dispatch({ type: "SAVE_USER", payload: userData }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

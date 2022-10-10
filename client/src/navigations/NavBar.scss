@@ -51,19 +51,74 @@
     height: 100%;
     width: 30%;
     // border: 1px solid red;
-    a {
-      margin: 0 3px;
-      float: left;
-      color: rgb(53, 53, 209);
-      text-align: center;
-      align-items: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-      //border: 1px solid red;
-      border-radius: 10px;
-      width: 100px;
-      height: 35px;
-    }
+    // a {
+    //   margin: 0 3px;
+    //   float: left;
+    //   color: rgb(53, 53, 209);
+    //   text-align: center;
+    //   align-items: center;
+    //   padding: 14px 16px;
+    //   text-decoration: none;
+    //   font-size: 17px;
+    //   //border: 1px solid red;
+    //   border-radius: 10px;
+    //   width: 100px;
+    //   height: 35px;
+    // }
+    // .dropdown-container {
+    //   width: 64;
+    //   height: 64px;
+    //   border: 1px solid red;
+    //   margin: 0 10px;
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    //   align-items: center;
+
+    //   .dropdown-menu-container {
+    //     // border: 1px solid red;
+    //     margin-top: 10px;
+    //     padding: 10px;
+    //     width: 350px;
+    //     height: 300px;
+    //     border-radius: 10px;
+    //     background-color: #eaeaea;
+    //     .dropdown-item-profile {
+    //       // border: 1px solid red;
+    //       width: 95%;
+    //       height: 40px;
+    //       margin: 0 auto;
+    //       display: flex;
+    //       flex-direction: column;
+    //       justify-content: center;
+    //       a {
+    //         //border: 1px solid red;
+    //         text-decoration: none;
+    //         width: 100%;
+    //         height: 40px;
+    //         border-radius: 10px;
+    //         display: flex;
+    //         padding: 5px 5px;
+
+    //         .icon {
+    //           width: 30px;
+    //           height: 30px;
+    //         }
+
+    //         span {
+    //           color: #000000;
+    //           font-size: 17px;
+    //           font-weight: bold;
+    //           margin-left: 10px;
+    //         }
+    //       }
+
+    //       a:hover {
+    //         background-color: #a1a1a1;
+    //         // color: black;
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
