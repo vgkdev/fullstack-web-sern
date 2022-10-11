@@ -24,7 +24,7 @@ let handleUserLogin = (email, password) => {
         let user = await db.User.findOne({
           where: { email: email },
           raw: true,
-          attributes: ["firstName", "lastName", "email", "password"],
+          attributes: ["id", "firstName", "lastName", "email", "password"],
         });
         // console.log(">>check user: ", user);
         if (user) {
@@ -32,7 +32,7 @@ let handleUserLogin = (email, password) => {
           if (checkPassword) {
             userData.errCode = 0;
             userData.message = "ok";
-            delete user.password; //xóa password khỏi object user
+            //  delete user.password; //xóa password khỏi object user
             userData.user = user;
           } else {
             userData.errCode = 3;
@@ -146,6 +146,7 @@ let updataUserData = (data) => {
         resolve({
           errCode: 0,
           message: "User updated successful",
+          user,
         });
       } else {
         resolve({

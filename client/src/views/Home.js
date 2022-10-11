@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { BiMessageRoundedAdd } from "react-icons/bi";
+import ModalAddNewPost from "../components/ModalAddNewPost";
 
 import { connect } from "react-redux";
 
 import "./Home.scss";
 
 const Home = (props) => {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div className="home-container">
-      <div>{JSON.stringify(props.dataRedux)}</div>
+      <div className="add-new-post">
+        <BiMessageRoundedAdd
+          className="icon-add-new-post"
+          onClick={() => setModalShow(true)}
+        />
+        <div className="text" onClick={() => setModalShow(true)}>
+          Add new post
+        </div>
+      </div>
+
+      <ModalAddNewPost show={modalShow} onHide={() => setModalShow(false)} />
     </div>
   );
 };

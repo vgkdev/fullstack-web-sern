@@ -1,14 +1,43 @@
 .home-container {
-  //display: flex;
-  //justify-content: center;
-  //text-align: center;
+  width: 70%;
+  min-height: 600px;
+  border: 1px solid red;
+  margin: 0 auto;
   margin-top: 10px;
-  .icon {
-    // font-size: 50px;
-    background: gray;
-    width: 10px;
-    height: 10px;
-    // display: flex;
-    color: white;
+  padding: 10px;
+  border-radius: 10px;
+  // background-color: #ffffff;
+
+  .add-new-post {
+    background-color: #d9dbe1;
+    //border: 1px solid red;
+    width: 50%;
+    height: 60px;
+    margin: 0 auto;
+    padding: 10px 7px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+
+    .icon-add-new-post {
+      //border: 1px solid red;
+      // background-color: #f0f2f5;
+      font-size: 35px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .text {
+      //border: 1px solid red;
+      background-color: #f0f0f0;
+      padding: 0 10px;
+      width: 90%;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+    }
   }
 }

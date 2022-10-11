@@ -17,10 +17,10 @@ const App = (props) => {
 
   return (
     <div className="App">
-      {/* {console.log(user)} */}
-      {user && <Navigator />}
+      {user ? <Navigator /> : <Login />}
+      {/* {user && <Navigator />}
 
-      {!user && <Login />}
+      {!user && <Login />} */}
     </div>
   );
 };

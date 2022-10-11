@@ -87,7 +87,8 @@ const Login = (props) => {
       </div>
 
       <ModalCreateUser
-        setStateLogin={props.setStateLogin}
+        type={"Register"}
+        dataUser={{ firstName: "", lastName: "", email: "", password: "" }}
         show={modalShow}
         onHide={() => setModalShow(false)}
       />

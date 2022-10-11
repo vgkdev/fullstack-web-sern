@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { FaUserAlt } from "react-icons/fa";
 import { AiTwotoneSetting } from "react-icons/ai";
 import { IoMdLogOut } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 
+import ModalCreateUser from "../components/ModalCreateUser";
+
 import { connect } from "react-redux";
 
 import "./DropDownProfile.scss";
 
 const DropDownProfile = (props) => {
+  const [modalShow, setModalShow] = useState(false);
+
+  const handleLogOutUser = () => {
+    props.saveUserRedux(null);
+  };
+
   return (
     <Dropdown className="dropdown-container">
       <Dropdown.Toggle
@@ -36,20 +44,26 @@ const DropDownProfile = (props) => {
         </div>
         <Dropdown.Divider />
 
-        <div className="dropdown-item">
+        <div className="dropdown-item" onClick={() => setModalShow(true)}>
           <NavLink>
             <AiTwotoneSetting className="icon-setting" />
             <span>Update Profile</span>
           </NavLink>
         </div>
 
-        <div className="dropdown-item">
+        <div className="dropdown-item" onClick={handleLogOutUser}>
           <NavLink>
             <IoMdLogOut className="icon-setting" />
             <span>Log Out</span>
           </NavLink>
         </div>
       </Dropdown.Menu>
+      <ModalCreateUser
+        type={"Update"}
+        dataUser={props.dataRedux}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </Dropdown>
   );
 };

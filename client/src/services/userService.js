@@ -8,8 +8,12 @@ const handleLoginUser = (userEmail, userPassword) => {
 };
 
 const createNewUser = (data) => {
-  console.log("check data: ", data);
+  // console.log("check data: ", data);
   return axios.post("http://localhost:8080/api/v1/create-new-user", data);
 };
 
-export { handleLoginUser, createNewUser };
+const updateUser = (data) => {
+  return axios.put("http://localhost:8080/api/v1/edit-user", data);
+};
+
+export { handleLoginUser, createNewUser, updateUser };
