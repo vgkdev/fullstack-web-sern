@@ -16,7 +16,7 @@ const Home = (props) => {
           onClick={() => setModalShow(true)}
         />
         <div className="text" onClick={() => setModalShow(true)}>
-          Add new post
+          Add new post ...
         </div>
       </div>
 

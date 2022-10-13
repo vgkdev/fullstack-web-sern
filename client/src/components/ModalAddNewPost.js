@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { connect } from "react-redux";
+import { FaUserAlt } from "react-icons/fa";
+
+import "./ModalAddNewPost.scss";
+import Button from "react-bootstrap/esm/Button";
 
 // import "./ModalAddNewPost.scss";
 
 const ModalAddNewPost = (props) => {
-  const [errMessage, setErrMessage] = useState("");
-
   //   const handleOnChangeFirstName = (event) => {
   //     setFirstName(event.target.value);
   //   };
@@ -24,15 +26,21 @@ const ModalAddNewPost = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className="modal-container">
-          <div className="input-user-name"></div>
+        <div className="modal-add-new-post-container">
+          <div className="user">
+            <FaUserAlt className="icon" />
+            <span className="name">
+              {props.dataRedux.firstName + " " + props.dataRedux.lastName}
+            </span>
+          </div>
 
-          <div className="input-email-password"></div>
-          <div className="err-message">{errMessage}</div>
+          <textarea placeholder="Write your post ..." />
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <div className="footer-container"></div>
+        <div className="footer-container">
+          <Button className="btn">Post</Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );

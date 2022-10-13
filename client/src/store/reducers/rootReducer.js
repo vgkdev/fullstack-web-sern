@@ -1,5 +1,10 @@
 const initState = {
-  user: null,
+  user: {
+    firstName: "Khang",
+    lastName: "Vo",
+    email: "khang@gmail.com",
+    password: "123456",
+  },
 };
 
 const rootReducer = (state = initState, action) => {
