@@ -1,19 +1,27 @@
 const initState = {
   user: {
-    firstName: "Khang",
+    id: 7,
+    firstName: "Khang Gia",
     lastName: "Vo",
-    email: "khang@gmail.com",
+    email: "khang4@gmail.com",
     password: "123456",
   },
+
+  posts: null,
 };
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case "SAVE_USER":
-      // console.log("check data redux: ", action.payload);
       return {
         ...state,
         user: action.payload,
+      };
+
+    case "SAVE_POSTS":
+      return {
+        ...state,
+        posts: action.payload,
       };
     default:
       return state;

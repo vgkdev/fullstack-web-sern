@@ -24,11 +24,18 @@ const NavBar = (props) => {
 
         <NavLink end to={"/"}>
           Home
+          <div className="divider" />
         </NavLink>
 
-        <NavLink to={"/posts"}>Posts</NavLink>
+        <NavLink to={"/posts"}>
+          Posts
+          <div className="divider" />
+        </NavLink>
 
-        <NavLink to={"/profile"}>Profile</NavLink>
+        <NavLink to={"/profile"}>
+          Profile
+          <div className="divider" />
+        </NavLink>
       </div>
 
       <div className="right-bar">

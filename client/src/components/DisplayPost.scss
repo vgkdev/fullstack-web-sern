@@ -1,0 +1,22 @@
+.display-post-container {
+  //border: 1px solid red;
+  width: 60%;
+  min-height: 150px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff;
+
+  .user-infomation {
+    .icon {
+      width: 25px;
+      height: 25px;
+      color: rgb(53, 53, 209);
+      margin-right: 10px;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+  }
+}

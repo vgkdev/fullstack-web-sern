@@ -1,8 +1,9 @@
 .nav-bar-container {
   //overflow: hidden;
   height: 64px;
-  background-color: #d9dbe1;
-  //background-color: #ffffff;
+  //background-color: #d9dbe1;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #e4e6e8;
   display: flex;
 
   .left-bar {
@@ -15,28 +16,39 @@
       color: #89898b;
       text-align: center;
       align-items: center;
-      padding: 14px 16px;
+      padding: 14px 0px;
       text-decoration: none;
       font-size: 17px;
       //border: 1px solid red;
       border-radius: 10px;
       width: 100px;
       height: 64px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
     a:not(.nohover):hover {
       background-color: #a1a1a1;
       color: black;
     }
     a.active {
-      // hr {
-      //   visibility: visible;
-      // }
-      background-color: #a1a1a1;
-      color: #000000;
+      color: rgb(53, 53, 209);
+      .divider {
+        margin: auto 0;
+        width: 90%;
+        height: 3px;
+        border-radius: 10px;
+        //border: 1px solid red;
+        background-color: rgb(53, 53, 209);
+        position: absolute;
+        bottom: 0;
+        // display: none;
+      }
     }
 
     a.noactive {
-      background-color: #d9dbe1;
+      background-color: #ffffff;
+      //icon
     }
 
     .icon {

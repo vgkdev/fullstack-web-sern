@@ -22,7 +22,7 @@ const DropDownProfile = (props) => {
     <Dropdown className="dropdown-container">
       <Dropdown.Toggle
         id="dropdown-button-dark-example1"
-        style={{ backgroundColor: "#d9dbe1", border: "none" }}
+        style={{ backgroundColor: "#ffffff", border: "none" }}
       >
         <FaUserAlt
           style={{
