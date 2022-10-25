@@ -38,7 +38,9 @@ const DropDownProfile = (props) => {
           <NavLink to={"/profile"}>
             <FaUserAlt className="icon-profile" />
             <span className="profile">
-              {props.dataRedux.firstName + " " + props.dataRedux.lastName}
+              {props.userDataRedux.firstName +
+                " " +
+                props.userDataRedux.lastName}
             </span>
           </NavLink>
         </div>
@@ -60,7 +62,7 @@ const DropDownProfile = (props) => {
       </Dropdown.Menu>
       <ModalCreateUser
         type={"Update"}
-        dataUser={props.dataRedux}
+        dataUser={props.userDataRedux}
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
@@ -70,7 +72,7 @@ const DropDownProfile = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.user,
+    userDataRedux: state.user,
   };
 };
 

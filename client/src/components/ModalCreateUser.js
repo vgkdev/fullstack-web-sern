@@ -87,7 +87,7 @@ const ModalCreateUser = (props) => {
     };
   } else {
     data = {
-      id: props.dataRedux.id,
+      id: props.userDataRedux.id,
       firstName: firstName,
       lastName: lastName,
     };
@@ -183,7 +183,7 @@ const ModalCreateUser = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.user,
+    userDataRedux: state.user,
   };
 };
 

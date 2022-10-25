@@ -6,4 +6,8 @@ const getAllPosts = (userID) => {
   );
 };
 
-export { getAllPosts };
+const addNewPost = (data) => {
+  return axios.post("http://localhost:8080/api/v1/create-new-post", data);
+};
+
+export { getAllPosts, addNewPost };

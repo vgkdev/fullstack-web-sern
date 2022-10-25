@@ -8,7 +8,7 @@ import DisplayPost from "../components/DisplayPost";
 import "./Home.scss";
 
 const Home = (props) => {
-  //const [posts, setPosts] = useState(null);
+  // const [posts, setPosts] = useState(null);
   const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,8 @@ const Home = (props) => {
           console.log("not found post");
         } else {
           //setPosts(dataPosts.data.posts);
+          const posts = dataPosts.data.posts;
+          posts.reverse();
           props.savePostsRedux(dataPosts.data.posts);
           console.log(dataPosts.data.posts);
         }
@@ -29,7 +31,7 @@ const Home = (props) => {
     };
 
     fetchData();
-  }, [props]);
+  }, []);
 
   return (
     <div className="home-container">
@@ -43,8 +45,11 @@ const Home = (props) => {
         </div>
       </div>
 
-      {/* <div className="post-container">{JSON.stringify(posts)}</div> */}
-      <DisplayPost />
+      {props.postsDataRedux &&
+        props.postsDataRedux.map((item) => {
+          return <DisplayPost key={item.id} dataPosts={item} />;
+        })}
+
       <ModalAddNewPost show={modalShow} onHide={() => setModalShow(false)} />
     </div>
   );
@@ -52,7 +57,8 @@ const Home = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.user,
+    userDataRedux: state.user,
+    postsDataRedux: state.posts,
   };
 };
 

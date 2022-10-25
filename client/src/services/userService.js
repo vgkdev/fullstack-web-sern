@@ -16,4 +16,8 @@ const updateUser = (data) => {
   return axios.put("http://localhost:8080/api/v1/edit-user", data);
 };
 
-export { handleLoginUser, createNewUser, updateUser };
+const getUser = (id) => {
+  return axios.get(`http://localhost:8080/api/v1/get-all-users?id=${id}`);
+};
+
+export { handleLoginUser, createNewUser, updateUser, getUser };

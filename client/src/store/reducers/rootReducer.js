@@ -23,6 +23,12 @@ const rootReducer = (state = initState, action) => {
         ...state,
         posts: action.payload,
       };
+
+    case "UPDATE_POSTS":
+      return {
+        ...state,
+        posts: state.posts.unshift(action.payload),
+      };
     default:
       return state;
   }

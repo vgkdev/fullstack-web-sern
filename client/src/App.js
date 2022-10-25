@@ -13,7 +13,7 @@ const App = (props) => {
   //   setIsLogin(true);
   // };
 
-  const user = props.dataRedux;
+  const user = props.userDataRedux;
 
   return (
     <div className="App">
@@ -27,7 +27,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.user,
+    userDataRedux: state.user,
   };
 };
 

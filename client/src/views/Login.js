@@ -98,7 +98,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.user,
+    userDataRedux: state.user,
   };
 };
 

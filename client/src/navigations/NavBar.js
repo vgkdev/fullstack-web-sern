@@ -58,7 +58,7 @@ const NavBar = (props) => {
               <NavLink to={"/profile"}>
                 <FaUserAlt className="icon" />
                 <span>
-                  {props.dataRedux.firstName + " " + props.dataRedux.lastName}
+                  {props.userDataRedux.firstName + " " + props.userDataRedux.lastName}
                 </span>
               </NavLink>
             </div>
@@ -75,7 +75,7 @@ const NavBar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.user,
+    userDataRedux: state.user,
   };
 };
 
