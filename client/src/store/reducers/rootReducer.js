@@ -1,12 +1,12 @@
 const initState = {
-  user: {
-    id: 7,
-    firstName: "Khang Gia",
-    lastName: "Vo",
-    email: "khang4@gmail.com",
-    password: "123456",
-  },
-
+  // user: {
+  //   id: 7,
+  //   firstName: "Khang Gia",
+  //   lastName: "Vo",
+  //   email: "khang4@gmail.com",
+  //   password: "123456",
+  // },
+  user: null,
   posts: null,
 };
 

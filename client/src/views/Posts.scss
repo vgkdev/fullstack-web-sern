@@ -1,0 +1,43 @@
+.posts-container {
+  width: 70%;
+  min-height: 600px;
+  //border: 1px solid red;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  // background-color: #ffffff;
+
+  .add-new-post {
+    background-color: #ffffff;
+    //border: 1px solid red;
+    width: 60%;
+    height: 70px;
+    margin: 0 auto;
+    padding: 15px 7px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+
+    .icon-add-new-post {
+      //border: 1px solid red;
+      // background-color: #f0f2f5;
+      font-size: 35px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .text {
+      //border: 1px solid red;
+      background-color: #e4e6e9;
+      padding: 0 10px;
+      width: 90%;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}

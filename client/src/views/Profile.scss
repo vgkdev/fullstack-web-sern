@@ -1,0 +1,89 @@
+.profile-container {
+  min-height: 600px;
+  width: 95%;
+  //border: 1px solid red;
+  margin: 0 auto;
+  padding: 20px 10px;
+
+  .background-profile {
+    height: 200px;
+    width: 60%;
+    // border: 1px solid blue;
+    margin: 0 auto;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+
+    .user-infomation {
+      // border: 1px solid red;
+      height: 90%;
+      width: 50%;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      .icon {
+        width: 50%;
+        height: 100%;
+        padding: 20px;
+        color: rgb(53, 53, 209);
+        // border: 1px solid red;
+
+        border-radius: 50%;
+        background-color: #f0f2f5;
+        position: absolute;
+        bottom: 0px;
+        left: 10px;
+      }
+
+      .name {
+        // border: 1px solid red;
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    .setting-user {
+      width: 50%;
+      height: 90%;
+      // border: 1px solid red;
+      position: relative;
+
+      .setting-container {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        //text-align: center;
+        align-items: center;
+        gap: 7px;
+        background-color: #f0f2f5;
+        // border: 1px solid red;
+        border-radius: 10px;
+        padding: 0 5px;
+        width: 50%;
+        height: 20%;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+
+        .icon {
+          width: 30px;
+          height: 90%;
+          color: #000000;
+          //border: 1px solid red;
+        }
+
+        span {
+          //border: 1px solid red;
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

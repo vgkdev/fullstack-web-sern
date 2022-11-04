@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BiMessageRoundedAdd } from "react-icons/bi";
 import ModalAddNewPost from "../components/ModalAddNewPost";
-import { getAllPosts } from "../services/postService";
+import { getAllPosts, addNewPost } from "../services/postService";
 import { connect } from "react-redux";
 import DisplayPost from "../components/DisplayPost";
 
@@ -33,6 +33,29 @@ const Home = (props) => {
     fetchData();
   }, []);
 
+  const handleAddNewPost = async (postContent) => {
+    await addNewPost({
+      userID: props.userDataRedux.id,
+      content: postContent,
+    });
+
+    try {
+      let dataPosts = await getAllPosts("ALL");
+
+      if (!dataPosts) {
+        console.log("not found post");
+      } else {
+        //setPosts(dataPosts.data.posts);
+        const posts = dataPosts.data.posts;
+        posts.reverse();
+        props.savePostsRedux(dataPosts.data.posts);
+        console.log(dataPosts.data.posts);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="home-container">
       <div className="add-new-post">
@@ -50,7 +73,11 @@ const Home = (props) => {
           return <DisplayPost key={item.id} dataPosts={item} />;
         })}
 
-      <ModalAddNewPost show={modalShow} onHide={() => setModalShow(false)} />
+      <ModalAddNewPost
+        handleAddNewPostFromHome={handleAddNewPost}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { connect } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
-import { addNewPost } from "../services/postService";
+// import { addNewPost } from "../services/postService";
 
 import "./ModalAddNewPost.scss";
 import Button from "react-bootstrap/esm/Button";
@@ -10,20 +10,25 @@ import Button from "react-bootstrap/esm/Button";
 const ModalAddNewPost = (props) => {
   const [postContent, setPostContent] = useState("");
 
+  useEffect(() => {
+    setPostContent("");
+  }, []);
+
   const handleAddNewPost = async () => {
-    const dataPost = await addNewPost({
-      userID: props.userDataRedux.id,
-      content: postContent,
-    });
+    // const dataPost = await addNewPost({
+    //   userID: props.userDataRedux.id,
+    //   content: postContent,
+    // });
 
-    console.log(">>>check new posts: ", dataPost.data.post);
+    // console.log(">>>check new posts: ", dataPost.data.post);
 
-    // const newPost = dataPost.data.post;
-    // props.updatePostsRedux(newPost);
+    // // const newPost = dataPost.data.post;
+    // // props.updatePostsRedux(newPost);
 
-    // const allPosts = props.postsDataRedux;
-    // props.savePostsRedux(allPosts.unshift(newPost));
-    console.log(">>>check posts data: ", props.postsDataRedux);
+    // // const allPosts = props.postsDataRedux;
+    // // props.savePostsRedux(allPosts.unshift(newPost));
+    // console.log(">>>check posts data: ", props.postsDataRedux);
+    props.handleAddNewPostFromHome(postContent);
     props.onHide();
   };
 
