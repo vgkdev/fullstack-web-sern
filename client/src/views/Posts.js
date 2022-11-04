@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getAllPosts } from "../services/postService";
 import { connect } from "react-redux";
 import DisplayPost from "../components/DisplayPost";
+import Spinner from "react-bootstrap/Spinner";
 
 import "./Posts.scss";
 
 const Posts = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         let dataPosts = await getAllPosts("ALL");
+        setIsLoading(true);
 
         if (!dataPosts) {
           console.log("not found post");
@@ -21,19 +25,27 @@ const Posts = (props) => {
           console.log(dataPosts.data.posts);
         }
       } catch (err) {
+        setIsLoading(false);
         console.log(err);
       }
     };
 
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 1500);
   }, []);
 
   return (
     <div className="posts-container">
-      {props.postsDataRedux &&
+      {props.postsDataRedux && isLoading ? (
         props.postsDataRedux.map((item) => {
           return <DisplayPost key={item.id} dataPosts={item} />;
-        })}
+        })
+      ) : (
+        <div className="loading">
+          <Spinner animation="grow" variant="primary" />
+        </div>
+      )}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { getPost } from "../services/postService";
 import { FaUserAlt } from "react-icons/fa";
 import { AiTwotoneSetting } from "react-icons/ai";
 import ModalCreateUser from "../components/ModalCreateUser";
+import Spinner from "react-bootstrap/Spinner";
 
 import DisplayPost from "../components/DisplayPost";
 
@@ -12,11 +13,13 @@ import "./Profile.scss";
 const Profile = (props) => {
   const [allPosts, setAllPosts] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const posts = await getPost(props.userDataRedux.id);
+        setIsLoading(true);
 
         if (!posts) {
           console.log("");
@@ -26,11 +29,14 @@ const Profile = (props) => {
 
         console.log(">>>check posts data: ", posts.data.posts);
       } catch (err) {
+        setIsLoading(false);
         console.log(err);
       }
     };
 
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 1500);
   }, [props.userDataRedux.id]);
 
   return (
@@ -52,10 +58,19 @@ const Profile = (props) => {
       </div>
 
       <div>
-        {allPosts &&
+        {allPosts && isLoading ? (
           allPosts.map((item) => {
             return <DisplayPost key={item.id} dataPosts={item} />;
-          })}
+          })
+        ) : (
+          <div className="loading">
+            <Spinner animation="grow" variant="primary" />
+          </div>
+        )}
+        {/* {allPosts &&
+          allPosts.map((item) => {
+            return <DisplayPost key={item.id} dataPosts={item} />;
+          })} */}
       </div>
 
       <ModalCreateUser
