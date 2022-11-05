@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { connect } from "react-redux";
 import { getUser } from "../services/userService";
+import { NavLink } from "react-router-dom";
 
 import "./DisplayPost.scss";
 
@@ -22,8 +23,13 @@ const DisplayPost = (props) => {
   return (
     <div className="display-post-container">
       <div className="user-infomation">
-        <FaUserAlt className="icon" />
-        <span className="name">{infoUser}</span>
+        <NavLink end to={`/profile/${props.dataPosts.userID}`}>
+          <FaUserAlt className="icon" />
+        </NavLink>
+
+        <NavLink end to={`/profile/${props.dataPosts.userID}`}>
+          <span className="name">{infoUser}</span>
+        </NavLink>
       </div>
 
       <div className="content">{props.dataPosts.content}</div>

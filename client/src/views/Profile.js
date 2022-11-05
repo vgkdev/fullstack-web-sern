@@ -5,6 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { AiTwotoneSetting } from "react-icons/ai";
 import ModalCreateUser from "../components/ModalCreateUser";
 import Spinner from "react-bootstrap/Spinner";
+import { getUser } from "../services/userService";
 
 import DisplayPost from "../components/DisplayPost";
 
@@ -14,11 +15,13 @@ const Profile = (props) => {
   const [allPosts, setAllPosts] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [infoUser, setInfoUser] = useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
+    setIsLoading(false);
+    const fetchData = async (id) => {
       try {
-        const posts = await getPost(props.userDataRedux.id);
+        const posts = await getPost(id);
         setIsLoading(true);
 
         if (!posts) {
@@ -27,7 +30,7 @@ const Profile = (props) => {
           setAllPosts(posts.data.posts.reverse());
         }
 
-        console.log(">>>check posts data: ", posts.data.posts);
+        // console.log(">>>check posts data: ", posts.data.posts);
       } catch (err) {
         setIsLoading(false);
         console.log(err);
@@ -35,26 +38,42 @@ const Profile = (props) => {
     };
 
     setTimeout(() => {
-      fetchData();
+      fetchData(props.userID);
     }, 1500);
-  }, [props.userDataRedux.id]);
+  }, [props.userDataRedux.id, props.userID]);
+
+  useEffect(() => {
+    const fetchData = async (id) => {
+      const infoUser = await getUser(id);
+      setInfoUser(
+        infoUser.data.users.firstName + " " + infoUser.data.users.lastName
+      );
+    };
+
+    fetchData(props.userID);
+  }, [props.userID]);
+
+  //console.log("check parameter: ", props.userID, " : ", props.userDataRedux.id);
 
   return (
     <div className="profile-container">
       <div className="background-profile">
         <div className="user-infomation">
           <FaUserAlt className="icon" />
-          <p className="name">
-            {props.userDataRedux.firstName + " " + props.userDataRedux.lastName}
-          </p>
+          <p className="name">{infoUser}</p>
         </div>
 
-        <div className="setting-user">
-          <div className="setting-container" onClick={() => setModalShow(true)}>
-            <AiTwotoneSetting className="icon" />
-            <span>Update Profile</span>
+        {props.userID == props.userDataRedux.id && (
+          <div className="setting-user">
+            <div
+              className="setting-container"
+              onClick={() => setModalShow(true)}
+            >
+              <AiTwotoneSetting className="icon" />
+              <span>Update Profile</span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div>

@@ -32,7 +32,7 @@ const NavBar = (props) => {
           <div className="divider" />
         </NavLink>
 
-        <NavLink to={"/profile"}>
+        <NavLink to={`/profile/${props.userDataRedux.id}`}>
           Profile
           <div className="divider" />
         </NavLink>

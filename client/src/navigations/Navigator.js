@@ -5,7 +5,7 @@ import Home from "../views/Home";
 import Login from "../views/Login";
 import Posts from "../views/Posts";
 import NavBar from "./NavBar";
-import Profile from "../views/Profile";
+import GetParamProfile from "../components/GetParamProfile";
 
 const Navigator = () => {
   return (
@@ -18,7 +18,7 @@ const Navigator = () => {
 
         <Route path="login" element={<Login />} />
 
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile/:userID" element={<GetParamProfile />} />
       </Routes>
     </BrowserRouter>
   );
